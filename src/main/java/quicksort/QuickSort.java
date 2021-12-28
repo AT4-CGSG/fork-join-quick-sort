@@ -2,7 +2,10 @@ package quicksort;
 
 import java.util.Arrays;
 import java.util.concurrent.RecursiveAction;
-
+   
+/*
+ * @author atsutsiev
+ */
 public class QuickSort extends RecursiveAction {
     private final int l, r;
     private final int[] a;

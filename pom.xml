@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>QSORT_FJP</artifactId>
+    <artifactId>fork-join_quick_sort</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
