@@ -7,6 +7,19 @@ import util.primitives.ParallelScan
 import util.primitives.ParallelFilter
 
 class ParBFS : BFS {
+    var buff: Array<AtomicInteger?>? = null
+
+    override fun prepare(): Array<Int?> {
+        val res = arrayOfNulls<Int?>(buff!!.size)
+
+        for (i in buff!!.indices) {
+            if (buff!![i] != null)
+                res[i] = buff!![i]!!.get()
+        }
+
+        return res
+    }
+
     override fun perform(graph: Array<IntArray?>, start: Int) {
         val result = arrayOfNulls<AtomicInteger>(graph.size)
         val frontier = AtomicReference(IntArray(1))
@@ -37,5 +50,7 @@ class ParBFS : BFS {
 
             frontier.set(ParallelFilter().run(curFrontier) { x: Int? -> x != -1 })
         }
+
+        buff = result
     }
 }
